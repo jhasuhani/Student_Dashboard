@@ -81,7 +81,7 @@ export function Sidebar() {
             <X size={20} />
           </button>
 
-          {/* Collapse toggle on desktop */}
+      
           <button
             onClick={() => setCollapsed(!collapsed)}
             className="hidden lg:flex h-7 w-7 items-center justify-center rounded-lg text-slate-400 hover:bg-white/5 hover:text-white transition-colors"
