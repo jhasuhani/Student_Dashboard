@@ -31,7 +31,7 @@ export function HeroTile() {
             className="text-2xl md:text-3xl font-bold text-white"
           >
             Welcome back,{' '}
-            <span className="gradient-text">Suhani</span>
+            <span className="gradient-text">Student</span>
             {' '}👋
           </motion.h1>
           <motion.p

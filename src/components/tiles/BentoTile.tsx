@@ -26,7 +26,7 @@ export function BentoTile({ children, className = '', index = 0 }: BentoTileProp
       }}
       className={`group relative overflow-hidden rounded-2xl border border-white/[0.06] bg-bg-secondary p-5 md:p-6 transition-shadow duration-300 hover:border-accent-primary/20 hover:shadow-lg hover:shadow-accent-primary/10 ${className}`}
     >
-      {/* Gradient mesh background */}
+     
       <div
         className="absolute inset-0 pointer-events-none opacity-40"
         style={{
@@ -34,7 +34,7 @@ export function BentoTile({ children, className = '', index = 0 }: BentoTileProp
             'radial-gradient(ellipse at 20% 50%, rgba(99,102,241,0.08), transparent 50%), radial-gradient(ellipse at 80% 20%, rgba(139,92,246,0.06), transparent 50%)',
         }}
       />
-      {/* Grain texture */}
+     
       <div
         className="absolute inset-0 pointer-events-none opacity-[0.02] mix-blend-overlay"
         style={{

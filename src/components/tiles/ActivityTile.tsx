@@ -34,7 +34,7 @@ const dayLabels = ["Mon", "", "Wed", "", "Fri", "", "Sun"];
 interface DayCell {
   date: string;
   level: number;
-  isReal: boolean; // true = actual day in this month, false = empty padding
+  isReal: boolean; 
 }
 
 interface ActivityTileProps {
@@ -117,7 +117,7 @@ export function ActivityTile({ activityData }: ActivityTileProps) {
             </h2>
           </div>
           <div className="flex items-center gap-3">
-            {/* Year toggle */}
+          
             <div className="flex gap-1.5">
               {[new Date().getFullYear() - 1, new Date().getFullYear()].map(
                 (year) => (
@@ -168,7 +168,7 @@ export function ActivityTile({ activityData }: ActivityTileProps) {
             ))}
           </div>
 
-          {/* Month groups with gaps */}
+        
           <div className="overflow-x-auto pb-2 scrollbar-thin">
             <div className="flex w-max" style={{ gap: "8px" }}>
               {monthGroups.map((group, mi) => (
