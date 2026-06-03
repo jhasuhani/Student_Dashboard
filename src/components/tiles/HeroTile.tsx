@@ -40,7 +40,7 @@ export function HeroTile() {
             transition={{ delay: 0.4 }}
             className="mt-1 text-sm text-slate-400"
           >
-           Keep up the great work! You're making excellent progress.
+            Keep up the great work! You&apos;re making excellent progress.
           </motion.p>
         </div>
 
