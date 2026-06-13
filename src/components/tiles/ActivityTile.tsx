@@ -43,14 +43,26 @@ interface ActivityTileProps {
 
 export function ActivityTile({ activityData }: ActivityTileProps) {
   const [selectedYear, setSelectedYear] = useState(new Date().getFullYear());
+  const displayData =
+  activityData.length > 0
+    ? activityData
+    : Array.from({ length: 120 }, (_, i) => {
+        const date = new Date();
+        date.setDate(date.getDate() - i);
 
-  const activityMap = useMemo(
-    () =>
-      new Map(
-        activityData.map((item) => [item.activity_date, item.activity_level]),
-      ),
-    [activityData],
-  );
+        return {
+          activity_date: date.toISOString().split("T")[0],
+          activity_level: (i % 4) + 1,
+        };
+      });
+
+const activityMap = useMemo(
+  () =>
+    new Map(
+      displayData.map((item) => [item.activity_date, item.activity_level]),
+    ),
+  [displayData],
+);
   const monthGroups = useMemo(() => {
     const year = selectedYear;
     const groups: { month: string; daysInMonth: number; weeks: DayCell[][] }[] =
@@ -94,13 +106,14 @@ export function ActivityTile({ activityData }: ActivityTileProps) {
   }, [selectedYear, activityMap]);
 
   // Stats
-  const totalHours = activityData.reduce(
-    (sum, item) => sum + item.activity_level,
-    0,
-  );
-  const activeDays = activityData.filter(
-    (item) => item.activity_level > 0,
-  ).length;
+const totalHours = displayData.reduce(
+  (sum, item) => sum + item.activity_level,
+  0,
+);
+
+const activeDays = displayData.filter(
+  (item) => item.activity_level > 0,
+).length;
 
   const cellSize = 14;
   const cellGap = 3;
