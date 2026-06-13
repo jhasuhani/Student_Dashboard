@@ -42,19 +42,33 @@ interface ActivityTileProps {
 }
 
 export function ActivityTile({ activityData }: ActivityTileProps) {
-  const [selectedYear, setSelectedYear] = useState(new Date().getFullYear());
-  const displayData =
+ const [selectedYear, setSelectedYear] = useState(new Date().getFullYear());
+
+const dummyData = [
+  { activity_date: "2026-01-03", activity_level: 2 },
+  { activity_date: "2026-01-04", activity_level: 4 },
+  { activity_date: "2026-01-05", activity_level: 1 },
+  { activity_date: "2026-01-06", activity_level: 3 },
+
+  { activity_date: "2026-02-01", activity_level: 3 },
+  { activity_date: "2026-02-03", activity_level: 2 },
+  { activity_date: "2026-02-14", activity_level: 4 },
+
+  { activity_date: "2026-04-02", activity_level: 2 },
+  { activity_date: "2026-04-03", activity_level: 4 },
+
+  { activity_date: "2026-05-20", activity_level: 4 },
+  { activity_date: "2026-05-22", activity_level: 2 },
+
+  { activity_date: "2026-06-01", activity_level: 4 },
+  { activity_date: "2026-06-02", activity_level: 1 },
+  { activity_date: "2026-06-03", activity_level: 3 },
+];
+
+const displayData =
   activityData.length > 0
     ? activityData
-    : Array.from({ length: 120 }, (_, i) => {
-        const date = new Date();
-        date.setDate(date.getDate() - i);
-
-        return {
-          activity_date: date.toISOString().split("T")[0],
-          activity_level: (i % 4) + 1,
-        };
-      });
+    : dummyData;
 
 const activityMap = useMemo(
   () =>
